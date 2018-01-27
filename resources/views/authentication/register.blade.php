@@ -84,8 +84,12 @@
       </label>
     </div>
 
-    <button class="btn btn-lg btn-success btn-block" type="submit">Kayıt ol</button>
-    
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Kayıt ol</button>
+    <p class="mt-5 mb-3 text-muted">
+        <a href="{{ route('home') }}">Anasayfa</a> /
+        <a href="{{ route('forgotPassword') }}">Şifremi unuttum</a> /
+        <a href="{{ route('login') }}">Giriş yap</a>
+    </p>
   </form>
 
 

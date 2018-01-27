@@ -1,32 +1,80 @@
-@extends('master')
-@section('content')
-  <form class="form-signin" action="{{ route('forgotPassword') }}" method="POST">
+@extends('master-authentication')
 
-    {{ csrf_field() }}
+@section('head-after')
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: flex;
+            -ms-flex-align: center;
+            -ms-flex-pack: center;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    </style>
+@endsection
+
+@section('content')
+
+  <form class="form-signin text-center" action="{{ route('forgotPassword') }}" method="POST">
+
     @include('_partials.messages')
-    <h4 class="form-signin-heading">Şifremi unuttum</h4>
+    {{ csrf_field() }}
+
+    <h1 class="h3 mb-3 font-weight-bold">Şifremi unuttum</h1>
     
     <p class="text-muted">Mail adresinizi girin. Size bir şifre yenileme maili yollayacağız.</p>
     
     <label for="email" class="sr-only">Email Adresiniz</label>
     
     <input type="email" id="email" name="email" class="form-control form-control-lg rounded mb-2" value="{{ old('email') }}" placeholder="email@email.com" required>
-    <button class="btn btn-lg btn-success btn-block" type="submit">Yenileme Kodu Gönder</button>
-    
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Yenileme Kodu Gönder</button>
+    <p class="mt-5 mb-3 text-muted">
+        <a href="{{ route('home') }}">Anasayfa</a> /
+        <a href="{{ route('login') }}">Giriş yap</a> /
+        <a href="{{ route('register') }}">Kayıt ol</a>
+    </p>
   </form>
-  
-  <hr>
-  
-  <div class="form-bottom">
-      <div class="row">
-          <div class="col">
-              <a href="{{ route('home') }}" class="btn btn-light btn-block">Anasayfa</a>
-          </div>
-          <div class="col">
-              <a href="{{ route('login') }}" class="btn btn-light btn-block">Giriş Sayfası</a>
-          </div>
-      </div>
-  </div>
   
 
 @endsection
