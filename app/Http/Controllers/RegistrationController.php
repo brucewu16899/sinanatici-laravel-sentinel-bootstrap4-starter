@@ -9,7 +9,6 @@ use Mail;
 use Illuminate\Mail\Mailable;
 use App\Mail\ActivationMail;
 use Validator;
-use App\Phone;
 use App\User;
 
 class RegistrationController extends Controller
@@ -61,10 +60,6 @@ class RegistrationController extends Controller
         $role->users()->attach($user);
         
         $this->sendEmail($user, $activation->code);
-        
-        $phone = new Phone;
-        $phone->user_id = $user->id;
-        $phone->save();
         
         return redirect()->route('login')->withSuccess('Kayıt başarılı ancak hesabınızı aktifleştirmeniz için size bir mail yolladık. Lütfen maildeki linki kullanarak hesabınızı aktifleştiriniz.');
     }

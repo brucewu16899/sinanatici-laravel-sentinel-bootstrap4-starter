@@ -1,7 +1,7 @@
 @component('mail::layout')
     {{-- Header --}}
     @slot('header')
-        @component('mail::_partials.header', ['url' => config('app.url')])
+        @component('mail::header', ['url' => config('app.url')])
             {{ config('app.name') }}
         @endcomponent
     @endslot
@@ -20,8 +20,8 @@
 
     {{-- Footer --}}
     @slot('footer')
-        @component('mail::_partials.footer')
-            &copy; {{ date('Y') }} {{ config('app.name') }}. Tüm hakları saklıdır.
+        @component('mail::footer')
+            &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
         @endcomponent
     @endslot
 @endcomponent

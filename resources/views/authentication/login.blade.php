@@ -1,5 +1,4 @@
 @extends('master-authentication')
-@section('content')
 
 @section('head-after')
     <style>
@@ -54,6 +53,8 @@
         }
     </style>
 @endsection
+
+@section('content')
 
 <form class="form-signin text-center" action="{{ route('login') }}" method="POST">
     @include('_partials.messages')
